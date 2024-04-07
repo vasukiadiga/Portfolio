@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+   }
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Change color on hover */
+}
+#skills{
+    text-align: center;
+    font-size: large;
+}
+
+/* Section styles */
+section {
+    padding: 50px 20px;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* About section styles */
+#about {
+    background-color: #fff;
+    text-align: center;
+    font-size: large;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}   
+ {
+
+}
+ 
+/* Projects section styles */
+#projects {
+    background-color: #f9f9f9;
+}
+
+.project {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px); /* Add a slight lift on hover */
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Contact section styles */
+#contact {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 30px 10px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    .project {
+        padding: 15px;
+    }
+
+    #contact p {
+        font-size: 1rem;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+                <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my portfolio! My name is <b>Vasukinatha Adiga.</b>
+            <P>I'm a passionate web developer eager to learn and grow in the field of web development.</p> 
+            <p>Learning and improving my skills day by day, and waiting for an opportunity to join a company and contribute.</p>
+        <!-- Add more about yourself -->
+        <p><br></p>
+        <section id="skills">
+            <h2>Skills</h2>
+            <p><b>Familiar With:</b></p>
+            <p>HTML, CSS, JavaScipt, Python, Java, SQLconcepts,Github and VScode.</p>
+            </section>
+    </section>
+    <div class="image">
+    <img src="C:\Users\adiga\OneDrive\Pictures\Picsart_23-12-17_16-28-52-615.jpg" height="300px" width="300px"/>
+    </div>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Weather finder</h3>
+            <p>Weather finder using the API from the OpenWeatherMap,which returs the weather of the given city within seconds!</p>
+        </div>
+        <div class="project">
+            <h3>Simple Calculator</h3>
+            <p>A fully functional Calulator,with all the basics operation written in python and designed by using TKinter module.</p>
+        </div>     <p>You can find all My projects in Github Repository!</p>
+
+        <!-- Add more projects -->
+    </section>
+
+    <section id="contact">
+        <h2>My Contacts</h2>
+        <p>Email: adigavasuki@gmail.com</p>
+        <p>Phone: +91 6361759203</p>
+        <p>LinkedIn : www.linkedin.com/in/vasukinatha-adiga-5068ab287</p>
+        <p>Facebook : https://www.facebook.com/profile.php?id=100074674414508&mibextid=ZbWKwL</p>
+        <p>Github : github.com/vasukiadiga</p>
+        <!-- Add more contact information -->
+    </section>
+       
+</body>
+</html>
