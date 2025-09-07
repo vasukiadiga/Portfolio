@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vasukinatha Adiga - Statistical Programmer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      animation: slideDown 0.8s ease forwards;
+    }
+    
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #667eea;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #667eea;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      margin-top: 6rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="90" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="30" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      backdrop-filter: blur(10px);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      animation: fadeIn 1.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1s ease 0.3s both;
+      position: relative;
+      z-index: 2;
+    }
+    
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+      animation: fadeIn 1s ease 0.6s both;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .contact {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+      animation: fadeIn 1s ease 0.9s both;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .contact-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Sections */
+    section {
+      padding: 3rem 2rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    section:nth-child(even) {
+      background: #f8fafc;
+    }
+    
+    h3 {
+      color: #667eea;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+    
+    h3::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+    
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .job-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+    
+    .job-meta {
+      color: #667eea;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .skill-category {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .skill-category h4 {
+      color: #667eea;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      list-style: none;
+    }
+    
+    .skills-list li {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .skills-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    /* Projects */
+    .project-item {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border-left: 4px solid #667eea;
+    }
+    
+    .project-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .project-title {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Progress bars for skills */
+    .skill-bar {
+      background: #e2e8f0;
+      height: 6px;
+      border-radius: 3px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 3px;
+      width: 0;
+      transition: width 1.5s ease;
+    }
+    
+    /* Animations */
+    @keyframes slideDown {
+      to {
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* Scroll to top button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .scroll-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scroll-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    /* Loading animation */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    
+    .loading-overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 2rem 1rem;
+      }
+      
+      .nav-content {
+        padding: 0 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 3rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-content">
+      <div class="logo">VA</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header id="about">
+      <div class="profile-img" id="profileImg">
+        <img src="https://github.com/vasukiadiga/Portfolio/blob/main/image.jpg" 
+             alt="Vasukinatha Adiga" 
+             id="profilePhoto" 
+             style="display: block;" />
+        
+        <!-- Placeholder (will show if image fails to load) -->
+        <div class="profile-placeholder" id="profilePlaceholder" style="display: none;">👨‍💻</div>
+        
+        <!-- Development upload overlay -->
+        <div class="upload-overlay" onclick="showGitHubInstructions()">
+          <div class="upload-text">📸<br>Update Photo</div>
+        </div>
+        
+        <!-- Hidden file input for testing -->
+        <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)" />
+      </div>
+      <h1>Vasukinatha Adiga</h1>
+      <h2>Statistical Programmer & Data Scientist</h2>
+      <div class="contact">
+        <a href="#" class="contact-item">
+          📍 Manipal, India
+        </a>
+        <a href="tel:+916361759203" class="contact-item">
+          📞 +91 63617 59203
+        </a>
+        <a href="mailto:adigavasuki@gmail.com" class="contact-item">
+          ✉️ adigavasuki@gmail.com
+        </a>
+        <a href="#" class="contact-item">
+          💼 LinkedIn
+        </a>
+        <a href="#" class="contact-item">
+          🔗 GitHub
+        </a>
+      </div>
+    </header>
+
+    <section id="summary">
+      <h3>Professional Summary</h3>
+      <div class="card">
+        <p style="font-size: 1.1rem; line-height: 1.8;">
+          Experienced Statistical Programmer with deep expertise in <strong>SAS, R, and Python</strong> for healthcare data analysis. 
+          Specialized in clinical trial data processing, advanced statistical modeling, and regulatory reporting. 
+          Proven track record in sample size calculation, hypothesis testing, and database programming with a focus on 
+          delivering actionable insights for healthcare research and clinical decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h3>Professional Experience</h3>
+      
+      <div class="card">
+        <div class="job-title">Statistical Consultant (Assistant)</div>
+        <div class="job-meta">
+          🏢 PSPH, Manipal | 📅 2025–2026
+        </div>
+        <ul style="margin-left: 1rem; color: #64748b;">
+          <li>Programmed and validated clinical datasets using SAS, R, and Python for regulatory submissions</li>
+          <li>Conducted comprehensive sample size estimation and power analysis for clinical trials</li>
+          <li>Performed advanced statistical analysis including regression modeling and hypothesis testing</li>
+          <li>Generated professional statistical reports and tables for clinical research publications</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="job-title">Machine Learning Engineer</div>
+        <div class="job-meta">
+          🏢 Skolar (Remote) | 📅 2024
+        </div>
+        <ul style="margin-left: 1rem; color: #64748b;">
+          <li>Designed and implemented robust data processing pipelines in Python for healthcare applications</li>
+          <li>Developed and validated statistical models for predictive analytics in medical diagnostics</li>
+          <li>Collaborated with cross-functional teams to translate complex statistical findings into actionable insights</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="job-title">Data Analyst</div>
+        <div class="job-meta">
+          🏢 Healthcare Research Project (Remote) | 📅 2024
+        </div>
+        <ul style="margin-left: 1rem; color: #64748b;">
+          <li>Preprocessed and analyzed large-scale medical datasets including MedMCQA and LiveQA</li>
+          <li>Implemented data normalization and ETL processes for clinical database management</li>
+          <li>Ensured data quality and integrity for downstream statistical analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h3>Technical Expertise</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Programming & Analytics</h4>
+          <ul class="skills-list">
+            <li data-skill="95">SAS (Base, Macro, Proc SQL)</li>
+            <li data-skill="90">R (tidyverse, ggplot2)</li>
+            <li data-skill="85">Python (pandas, numpy, scikit-learn)</li>
+            <li data-skill="80">SQL</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Statistical Methods</h4>
+          <ul class="skills-list">
+            <li data-skill="95">Hypothesis Testing</li>
+            <li data-skill="90">Regression Analysis</li>
+            <li data-skill="85">ANOVA</li>
+            <li data-skill="80">Design of Experiments (DOE)</li>
+            <li data-skill="85">Sample Size Calculation</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Healthcare & Visualization</h4>
+          <ul class="skills-list">
+            <li data-skill="90">Healthcare Analytics</li>
+            <li data-skill="85">Medical Data Processing</li>
+            <li data-skill="80">Regulatory Reporting</li>
+            <li data-skill="75">Power BI</li>
+            <li data-skill="85">Excel</li>
+            <li data-skill="70">Jamovi</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Development & Tools</h4>
+          <ul class="skills-list">
+            <li data-skill="75">Git</li>
+            <li data-skill="80">Database Management</li>
+            <li data-skill="70">Data Visualization</li>
+            <li data-skill="75">ETL Processes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h3>Key Projects</h3>
+      
+      <div class="project-item">
+        <div class="project-title">🔬 Diabetic Prediction using Machine Learning</div>
+        <p>Developed sophisticated logistic regression and random forest models for diabetes prediction. 
+        Implemented comprehensive data preprocessing, feature scaling, and hyperparameter tuning. 
+        Achieved high accuracy with ROC-AUC analysis and provided clinical insights for healthcare practitioners.</p>
+      </div>
+      
+      <div class="project-item">
+        <div class="project-title">🏏 IPL Data Analysis using Statistical Methods</div>
+        <p>Conducted extensive exploratory data analysis and ANOVA on IPL performance data using Jamovi. 
+        Developed reproducible analytical workflows and created structured visualizations for comprehensive 
+        performance evaluation and strategic insights.</p>
+      </div>
+      
+      <div class="project-item">
+        <div class="project-title">🗣️ Kannada Meme Hate Speech Detection</div>
+        <p>Curated and analyzed 100+ Kannada memes using advanced OCR text extraction techniques. 
+        Developed a multimodal VisualBERT classifier for hate speech detection, combining image and text analysis 
+        for improved accuracy in social media content moderation.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h3>Education & Certifications</h3>
+      
+      <div class="card">
+        <div class="job-title">MSc Data Science</div>
+        <div class="job-meta">🎓 Prasanna School of Public Health, Manipal | 📅 2023–2025</div>
+        <p>Specialized in biostatistics, clinical data analysis, and healthcare analytics</p>
+      </div>
+      
+      <div class="card">
+        <div class="job-title">BSc Computer Science & Statistics</div>
+        <div class="job-meta">🎓 MGM College, Udupi | 📅 2020–2023</div>
+        <p>Strong foundation in statistical methods, programming, and data analysis</p>
+      </div>
+      
+      <div class="card">
+        <h4 style="color: #667eea; margin-bottom: 1rem;">Professional Certifications</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem;">
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ SAS Programming (Coursera)</span>
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ Clinical Data Analytics (PSPH)</span>
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ R Programming (UpSkill)</span>
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ Python Programming (UpSkill)</span>
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ Power BI (Coursera)</span>
+          <span style="background: #f1f5f9; padding: 0.5rem; border-radius: 8px;">✅ Advanced Excel (Coursera)</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="seminars">
+      <h3>Academic Contributions</h3>
+      
+      <div class="card">
+        <div class="project-title">📊 Correlation and Causation</div>
+        <div class="job-meta">Prasanna School of Public Health | 2024</div>
+        <p>Presented comprehensive seminar on distinguishing correlation from causation in statistical analysis, 
+        emphasizing practical implications for healthcare research and clinical decision-making.</p>
+      </div>
+      
+      <div class="card">
+        <div class="project-title">🖼️ Data Augmentation Techniques in Image Data</div>
+        <div class="job-meta">Prasanna School of Public Health | 2025</div>
+        <p>Delivered advanced seminar on image dataset enhancement methods, covering modern techniques for 
+        improving machine learning model performance in medical imaging applications.</p>
+      </div>
+    </section>
+
+    <section id="contact" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+      <h3 style="color: white;">Let's Connect</h3>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        Ready to collaborate on your next statistical programming or data science project?
+      </p>
+      <div class="contact">
+        <a href="mailto:adigavasuki@gmail.com" class="contact-item">
+          ✉️ Send Email
+        </a>
+        <a href="tel:+916361759203" class="contact-item">
+          📞 Call Now
+        </a>
+        <a href="#" class="contact-item">
+          💼 LinkedIn Profile
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+  <script>
+    // Loading animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('loading').classList.add('fade-out');
+      }, 1500);
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Animate skill bars
+          if (entry.target.id === 'skills') {
+            setTimeout(() => {
+              animateSkills();
+            }, 500);
+          }
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Animate skills function
+    function animateSkills() {
+      document.querySelectorAll('.skills-list li[data-skill]').forEach(skill => {
+        const skillLevel = skill.getAttribute('data-skill');
+        skill.style.position = 'relative';
+        skill.style.overflow = 'hidden';
+        
+        const progressBar = document.createElement('div');
+        progressBar.className = 'skill-bar';
+        skill.appendChild(progressBar);
+        
+        const progress = document.createElement('div');
+        progress.className = 'skill-progress';
+        progressBar.appendChild(progress);
+        
+        setTimeout(() => {
+          progress.style.width = skillLevel + '%';
+        }, Math.random() * 1000);
+      });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll to top button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Parallax effect for header background
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const header = document.querySelector('header');
+      const parallax = scrolled * 0.5;
+      header.style.transform = `translateY(${parallax}px)`;
+    });
+
+    // Add click effects to cards
+    document.querySelectorAll('.card, .project-item').forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+
+    // Typing effect for the title
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.innerHTML = '';
+      function typing() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        }
+      }
+      typing();
+    }
+
+    // Initialize typing effect after loading
+    setTimeout(() => {
+      const titleElement = document.querySelector('header h2');
+      if (titleElement) {
+        typeWriter(titleElement, 'Statistical Programmer & Data Scientist', 80);
+      }
+    }, 2000);
+
+    // Dynamic greeting based on time
+    function getGreeting() {
+      const hour = new Date().getHours();
+      if (hour < 12) return 'Good Morning! 🌅';
+      if (hour < 17) return 'Good Afternoon! ☀️';
+      return 'Good Evening! 🌙';
+    }
+
+    // Add greeting to contact section
+    setTimeout(() => {
+      const contactSection = document.querySelector('#contact p');
+      if (contactSection) {
+        contactSection.innerHTML = getGreeting() + '<br>' + contactSection.innerHTML;
+      }
+    }, 3000);
+
+    // Email copy functionality
+    function copyEmail() {
+      navigator.clipboard.writeText('adigavasuki@gmail.com').then(() => {
+        alert('Email copied to clipboard!');
+      });
+    }
+
+    // Add copy functionality to email links
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        copyEmail();
+      });
+    });
+
+    // Counter animation for stats
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      
+      function updateCounter() {
+        start += increment;
+        if (start < target) {
+          element.textContent = Math.floor(start);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      }
+      updateCounter();
+    }
+
+    // Add stats section dynamically
+    function addStatsSection() {
+      const summarySection = document.querySelector('#summary');
+      const statsHTML = `
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+            <h4 style="color: white; margin-bottom: 0.5rem;">Projects Completed</h4>
+            <div style="font-size: 2.5rem; font-weight: bold;" data-counter="15">0</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, #764ba2, #667eea); color: white;">
+            <h4 style="color: white; margin-bottom: 0.5rem;">Years Experience</h4>
+            <div style="font-size: 2.5rem; font-weight: bold;" data-counter="3">0</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+            <h4 style="color: white; margin-bottom: 0.5rem;">Certifications</h4>
+            <div style="font-size: 2.5rem; font-weight: bold;" data-counter="6">0</div>
+          </div>
+        </div>
+      `;
+      summarySection.insertAdjacentHTML('beforeend', statsHTML);
+      
+      // Animate counters when visible
+      setTimeout(() => {
+        document.querySelectorAll('[data-counter]').forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-counter'));
+          animateCounter(counter, target);
+        });
+      }, 1000);
+    }
+
+    // Add stats after page loads
+    setTimeout(addStatsSection, 2500);
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '100%';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'white';
+      navLinks.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.padding = '1rem';
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-content')) {
+        navLinks.style.display = '';
+      }
+    });
+
+    // Add particle effect to header
+    function createParticle() {
+      const header = document.querySelector('header');
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = '6px';
+      particle.style.height = '6px';
+      particle.style.background = 'rgba(255, 255, 255, 0.6)';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = '100%';
+      particle.style.animation = 'floatUp 6s ease-out forwards';
+      
+      header.appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 6000);
+    }
+
+    // Add CSS for floating particles
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-400px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(particleStyle);
+
+    // Create particles periodically
+    setInterval(createParticle, 2000);
+
+    // Add interactive hover effects to skills
+    document.querySelectorAll('.skills-list li').forEach(skill => {
+      skill.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px) scale(1.05)';
+      });
+      
+      skill.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Lazy loading for sections
+    const lazyElements = document.querySelectorAll('.card, .project-item');
+    const lazyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          lazyObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    lazyElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease';
+      lazyObserver.observe(el);
+    });
+
+    // Add download resume functionality (placeholder)
+    function addDownloadButton() {
+      const header = document.querySelector('header .contact');
+      const downloadBtn = document.createElement('a');
+      downloadBtn.className = 'contact-item';
+      downloadBtn.innerHTML = '📄 Download Resume';
+      downloadBtn.href = '#';
+      downloadBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Resume download functionality would be implemented here!');
+      });
+      header.appendChild(downloadBtn);
+    }
+
+    setTimeout(addDownloadButton, 3000);
+
+    // Console easter egg
+    console.log('%c🚀 Welcome to Vasukinatha Adiga\'s Portfolio!', 'color: #667eea; font-size: 16px; font-weight: bold;');
+    console.log('%cInterested in the code? Check out the source!', 'color: #764ba2; font-size: 14px;');
+    console.log('%c📧 Contact: adigavasuki@gmail.com', 'color: #333; font-size: 12px;');
+  </script>
+</body>
+</html>
